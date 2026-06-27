@@ -60,7 +60,7 @@ export function AdminLoginModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-charcoal/85 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] backdrop-blur-md flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(26, 20, 19, 0.88)' }}
           onClick={closeLogin}
         >
           <motion.div
@@ -72,7 +72,7 @@ export function AdminLoginModal() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Decorative header */}
-            <div className="relative bg-gradient-to-br from-charcoal to-foreground p-8 text-center">
+            <div className="relative p-8 text-center" style={{ background: 'linear-gradient(to bottom right, #1A1413, #2D2421)', color: '#FBF7F2' }}>
               <button
                 onClick={closeLogin}
                 className="absolute top-4 right-4 h-9 w-9 rounded-full bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-colors"
@@ -81,7 +81,7 @@ export function AdminLoginModal() {
                 <X className="h-4 w-4" />
               </button>
               <div className="flex justify-center mb-4">
-                <Logo variant="stacked" showText />
+                <Logo variant="stacked" showText tone="light" />
               </div>
               <div className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.28em] text-rosegold font-sans-lux">
                 <Lock className="h-3 w-3" />

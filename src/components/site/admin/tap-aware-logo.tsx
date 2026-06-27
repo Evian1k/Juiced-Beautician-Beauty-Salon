@@ -9,10 +9,18 @@ import { useAdmin } from '@/components/site/admin/admin-context'
  * 5 taps within 2.5 seconds opens the admin login modal (or dashboard if already authed).
  * Single tap = navigate home (and close drawer if applicable).
  *
- * Strategy: count taps. If the gap between taps is small (<400ms) it counts toward the
- * secret. The first tap of a sequence still triggers normal navigation.
+ * Strategy: count taps. If the gap between taps is small (<600ms) it counts toward the
+ * secret. The first tap of a fresh sequence still triggers normal navigation.
  */
-export function TapAwareLogo({ onNavigate, onClose }: { onNavigate?: () => void; onClose?: () => void }) {
+export function TapAwareLogo({
+  onNavigate,
+  onClose,
+  tone = 'auto',
+}: {
+  onNavigate?: () => void
+  onClose?: () => void
+  tone?: 'auto' | 'light'
+}) {
   const { openLogin, isAuthed, openDashboard } = useAdmin()
   const tapCountRef = React.useRef(0)
   const lastTapRef = React.useRef<number>(0)
@@ -27,7 +35,6 @@ export function TapAwareLogo({ onNavigate, onClose }: { onNavigate?: () => void;
     if (gap > 600 || tapCountRef.current === 0) {
       tapCountRef.current = 1
       if (onNavigate) onNavigate()
-      // Don't close drawer here so user can do 4 more quick taps if they want
     } else {
       tapCountRef.current += 1
     }
@@ -54,7 +61,7 @@ export function TapAwareLogo({ onNavigate, onClose }: { onNavigate?: () => void;
       aria-label="Juiced Beautician home"
       className="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rosegold/50 rounded-md"
     >
-      <Logo />
+      <Logo tone={tone} />
     </button>
   )
 }

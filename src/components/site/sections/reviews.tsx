@@ -37,7 +37,7 @@ export function Reviews() {
   const review = reviews[index]
 
   return (
-    <section id="reviews" className="relative py-24 sm:py-32 bg-charcoal text-ivory overflow-hidden">
+    <section id="reviews" className="relative py-24 sm:py-32 overflow-hidden bg-[#1A1413] text-[#FBF7F2]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-rosegold/15 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -46,7 +46,7 @@ export function Reviews() {
             <Sparkles className="h-3 w-3" />
             <span>What Clients Say</span>
           </div>
-          <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl text-ivory leading-[1.05]">
+          <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
             39 five-star reviews. <span className="italic luxury-gradient-text">Counting.</span>
           </h2>
 
@@ -84,7 +84,7 @@ export function Reviews() {
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="text-center"
               >
-                <p className="font-serif-display text-xl sm:text-2xl lg:text-3xl italic font-light leading-relaxed text-ivory/95">
+                <p className="font-serif-display text-xl sm:text-2xl lg:text-3xl italic font-light leading-relaxed text-current/95">
                   "{review.text}"
                 </p>
                 <footer className="mt-8 flex items-center justify-center gap-4">
@@ -95,7 +95,7 @@ export function Reviews() {
                     loading="lazy"
                   />
                   <div className="text-left">
-                    <div className="font-sans-lux text-sm text-ivory">{review.author}</div>
+                    <div className="font-sans-lux text-sm ">{review.author}</div>
                     <div className="text-xs text-white/60 font-sans-lux">{review.service} · {review.date}</div>
                   </div>
                 </footer>

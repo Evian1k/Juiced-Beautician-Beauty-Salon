@@ -102,7 +102,7 @@ export function AiAssistant() {
             className="fixed left-4 sm:left-6 bottom-6 z-50 w-[calc(100vw-2rem)] sm:w-96 h-[32rem] max-h-[80svh] bg-background rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-br from-charcoal to-foreground p-4 text-ivory flex items-center justify-between">
+            <div className="p-4 flex items-center justify-between" style={{ background: 'linear-gradient(to bottom right, #1A1413, #2D2421)', color: '#FBF7F2' }}>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-gradient-to-br from-rosegold to-gold flex items-center justify-center">
                   <Bot className="h-5 w-5" />

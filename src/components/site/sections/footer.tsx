@@ -45,7 +45,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-charcoal text-ivory pt-20 pb-8 mt-auto overflow-hidden">
+    <footer className="relative pt-20 pb-8 mt-auto overflow-hidden bg-[#1A1413] text-[#FBF7F2]">
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-rosegold/10 blur-[120px] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[120px] pointer-events-none" />
 
@@ -62,7 +62,7 @@ export function Footer() {
             <Heart className="h-3 w-3" />
             <span>The Inner Circle</span>
           </div>
-          <h3 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl text-ivory leading-tight">
+          <h3 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl leading-tight text-[#FBF7F2]">
             Receive beauty notes,<br /> <span className="italic luxury-gradient-text">first access, and member treats.</span>
           </h3>
           <form onSubmit={subscribe} className="mt-7 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -71,7 +71,7 @@ export function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="flex-1 bg-white/5 border border-white/15 rounded-full px-5 py-3 text-sm text-ivory placeholder:text-white/40 focus:outline-none focus:border-rosegold transition-colors"
+              className="flex-1 bg-white/5 border border-white/15 rounded-full px-5 py-3 text-sm placeholder:text-white/40 focus:outline-none focus:border-rosegold transition-colors"
             />
             <button
               type="submit"
@@ -89,7 +89,7 @@ export function Footer() {
         {/* Middle: links */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <TapAwareLogo />
+            <TapAwareLogo tone="light" />
             <p className="mt-4 text-sm text-white/60 leading-relaxed font-light">
               Nairobi's premier luxury beauty atelier. Editorial, bridal, lash, brow, nail and skincare rituals — open 24 hours, every day.
             </p>

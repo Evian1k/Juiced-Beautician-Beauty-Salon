@@ -109,7 +109,7 @@ export function BookingModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[90] bg-charcoal/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-6"
+          className="fixed inset-0 z-[90] backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-6" style={{ backgroundColor: 'rgba(26, 20, 19, 0.85)' }}
           onClick={close}
         >
           <motion.div

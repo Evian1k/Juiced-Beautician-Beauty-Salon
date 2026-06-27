@@ -4,6 +4,8 @@ interface LogoProps {
   className?: string
   variant?: 'full' | 'mark' | 'stacked'
   showText?: boolean
+  /** Text color tone — 'auto' uses foreground (for light backgrounds), 'light' forces ivory text (for dark backgrounds like the footer) */
+  tone?: 'auto' | 'light'
 }
 
 /**
@@ -11,7 +13,7 @@ interface LogoProps {
  * The mark blends a stylised "JB" initial inside a rose-gold gem frame,
  * crowned by a single drop representing the "juiced" essence of beauty.
  */
-export function Logo({ className = '', variant = 'full', showText = true }: LogoProps) {
+export function Logo({ className = '', variant = 'full', showText = true, tone = 'auto' }: LogoProps) {
   if (variant === 'mark' || !showText) {
     return <LogoMark className={className} />
   }
@@ -20,7 +22,7 @@ export function Logo({ className = '', variant = 'full', showText = true }: Logo
     return (
       <div className={`flex flex-col items-center gap-1 ${className}`}>
         <LogoMark className="h-12 w-12" />
-        <LogoText stacked />
+        <LogoText stacked tone={tone} />
       </div>
     )
   }
@@ -28,7 +30,7 @@ export function Logo({ className = '', variant = 'full', showText = true }: Logo
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
       <LogoMark className="h-9 w-9 shrink-0" />
-      <LogoText />
+      <LogoText tone={tone} />
     </div>
   )
 }
@@ -109,10 +111,11 @@ function LogoMark({ className = '' }: { className?: string }) {
   )
 }
 
-function LogoText({ stacked = false }: { stacked?: boolean }) {
+function LogoText({ stacked = false, tone = 'auto' }: { stacked?: boolean; tone?: 'auto' | 'light' }) {
+  const titleColor = tone === 'light' ? 'text-white' : 'text-foreground'
   return (
     <div className={stacked ? 'flex flex-col items-center leading-none' : 'flex flex-col leading-none'}>
-      <span className="font-serif-display text-[1.05rem] tracking-[0.18em] uppercase text-foreground">
+      <span className={`font-serif-display text-[1.05rem] tracking-[0.18em] uppercase ${titleColor}`}>
         Juiced
       </span>
       <span className="font-serif-soft text-[0.78rem] tracking-[0.32em] uppercase text-rosegold -mt-0.5">

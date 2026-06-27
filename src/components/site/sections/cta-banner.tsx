@@ -10,12 +10,12 @@ import { openWhatsApp } from '@/lib/utils'
 export function CtaBanner() {
   const { open: openBooking } = useBooking()
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden bg-charcoal">
+    <section className="relative py-20 sm:py-28 overflow-hidden bg-[#1A1413]">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=2400&q=80')] bg-cover bg-center opacity-25" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/40" />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,20,19,1), rgba(26,20,19,0.85), rgba(26,20,19,0.4))' }} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-2xl text-ivory">
+        <div className="max-w-2xl text-[#FBF7F2]">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

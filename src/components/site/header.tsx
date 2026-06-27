@@ -51,7 +51,7 @@ export function Header() {
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <TapAwareLogo onNavigate={() => handleNav('#home')} />
+          <TapAwareLogo onNavigate={() => handleNav('#home')} tone={scrolled ? 'auto' : 'light'} />
 
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -59,7 +59,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
-                className="relative px-4 py-2 text-sm font-sans-lux tracking-wide text-foreground/80 hover:text-foreground transition-colors group"
+                className={`relative px-4 py-2 text-sm font-sans-lux tracking-wide transition-colors group ${scrolled ? 'text-foreground/80 hover:text-foreground' : 'text-white/90 hover:text-white'}`}
               >
                 {link.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-rosegold transition-all duration-300 group-hover:w-3/4" />
@@ -71,15 +71,15 @@ export function Header() {
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               aria-label="Toggle theme"
-              className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-border hover:border-rosegold hover:text-rosegold transition-colors"
+              className={`hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${scrolled ? 'border-border hover:border-rosegold hover:text-rosegold' : 'border-white/30 text-white hover:border-rosegold hover:text-rosegold'}`}
             >
               {mounted && theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
 
             <a
               href={`tel:${business.phone}`}
-              className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-border hover:border-rosegold hover:text-rosegold transition-colors"
               aria-label="Call us"
+              className={`hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${scrolled ? 'border-border hover:border-rosegold hover:text-rosegold' : 'border-white/30 text-white hover:border-rosegold hover:text-rosegold'}`}
             >
               <Phone className="h-4 w-4" />
             </a>
@@ -94,7 +94,7 @@ export function Header() {
 
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-border"
+              className={`lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border transition-colors ${scrolled ? 'border-border' : 'border-white/30 text-white'}`}
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
@@ -112,7 +112,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[60] bg-charcoal/60 backdrop-blur-md"
+              className="fixed inset-0 z-[60] backdrop-blur-md" style={{ backgroundColor: 'rgba(26, 20, 19, 0.65)' }}
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
