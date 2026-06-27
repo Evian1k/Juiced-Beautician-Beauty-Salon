@@ -1,6 +1,7 @@
 'use client'
 
 import { BookingProvider } from '@/components/site/booking-context'
+import { AdminProvider } from '@/components/site/admin/admin-context'
 import { Header } from '@/components/site/header'
 import { Hero } from '@/components/site/sections/hero'
 import { About } from '@/components/site/sections/about'
@@ -16,31 +17,39 @@ import { Footer } from '@/components/site/sections/footer'
 import { BookingModal } from '@/components/site/booking-modal'
 import { FloatingActions } from '@/components/site/floating-actions'
 import { AiAssistant } from '@/components/site/ai-assistant'
+import { AdminLoginModal } from '@/components/site/admin/admin-login-modal'
+import { AdminDashboard } from '@/components/site/admin/admin-dashboard'
 
 export default function Home() {
   return (
-    <BookingProvider>
-      <div className="min-h-screen flex flex-col bg-background">
-        <Header />
-        <main className="flex-1">
-          <Hero />
-          <About />
-          <Services />
-          <Specialists />
-          <Portfolio />
-          <Reviews />
-          <CtaBanner />
-          <Blog />
-          <Faq />
-          <Contact />
-        </main>
-        <Footer />
+    <AdminProvider>
+      <BookingProvider>
+        <div className="min-h-screen flex flex-col bg-background">
+          <Header />
+          <main className="flex-1">
+            <Hero />
+            <About />
+            <Services />
+            <Specialists />
+            <Portfolio />
+            <Reviews />
+            <CtaBanner />
+            <Blog />
+            <Faq />
+            <Contact />
+          </main>
+          <Footer />
 
-        {/* Floating overlays */}
-        <BookingModal />
-        <FloatingActions />
-        <AiAssistant />
-      </div>
-    </BookingProvider>
+          {/* Floating overlays */}
+          <BookingModal />
+          <FloatingActions />
+          <AiAssistant />
+
+          {/* Admin (5-tap access) */}
+          <AdminLoginModal />
+          <AdminDashboard />
+        </div>
+      </BookingProvider>
+    </AdminProvider>
   )
 }

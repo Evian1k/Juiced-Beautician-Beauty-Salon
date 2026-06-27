@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Instagram, Facebook, Send, ArrowUp, Heart } from 'lucide-react'
-import { Logo } from '@/components/site/logo'
+import { TapAwareLogo } from '@/components/site/admin/tap-aware-logo'
 import { business, navLinks, serviceCategories } from '@/lib/data'
 import { toast } from 'sonner'
 
@@ -89,7 +89,7 @@ export function Footer() {
         {/* Middle: links */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <Logo />
+            <TapAwareLogo />
             <p className="mt-4 text-sm text-white/60 leading-relaxed font-light">
               Nairobi's premier luxury beauty atelier. Editorial, bridal, lash, brow, nail and skincare rituals — open 24 hours, every day.
             </p>

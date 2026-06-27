@@ -52,3 +52,17 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Local SQLite database (binary, regenerated from schema)
+/db/*.db
+/db/*.db-journal
+
+# Agent browser / downloads
+/download/
+/upload/
+/worklog.md
+
+# Z.ai scripts
+/.zscripts/
+/mini-services/*/node_modules
+/mini-services/*/.next

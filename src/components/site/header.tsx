@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Moon, Sun, Phone, Calendar } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { Logo } from '@/components/site/logo'
+import { TapAwareLogo } from '@/components/site/admin/tap-aware-logo'
 import { navLinks, business } from '@/lib/data'
 import { useBooking } from '@/components/site/booking-context'
 import { cn, openWhatsApp } from '@/lib/utils'
@@ -51,9 +51,7 @@ export function Header() {
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <Link href="#home" onClick={(e) => { e.preventDefault(); handleNav('#home') }} className="shrink-0">
-            <Logo />
-          </Link>
+          <TapAwareLogo onNavigate={() => handleNav('#home')} />
 
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -125,7 +123,7 @@ export function Header() {
               className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-sm bg-background shadow-2xl flex flex-col"
             >
               <div className="flex items-center justify-between p-6 border-b border-border">
-                <Logo />
+                <TapAwareLogo />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-border"
